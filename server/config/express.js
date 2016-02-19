@@ -18,7 +18,7 @@ import connectMongo from 'connect-mongo';
 import mongoose from 'mongoose';
 var mongoStore = connectMongo(session);
 
-export default function(app) {
+module.exports = function(app) {
   app.use(compression());
   app.use(bodyParser.urlencoded({ extended: false }));
   app.use(bodyParser.json());

@@ -2,7 +2,7 @@
  * Created by Vadym Yatsyuk on 19/02/16
  */
 "use strict";
-import express from 'expreess'
+import express from 'express'
 import mongoose from 'mongoose'
 import http from 'http'
 
