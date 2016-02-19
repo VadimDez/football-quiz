@@ -1,6 +1,24 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope) {})
+.controller('DashCtrl', function($scope) {
+
+  $scope.createGame = createGame;
+  $scope.joinGame = joinGame;
+
+  /**
+   * Create game
+   */
+  function createGame() {
+
+  }
+
+  /**
+   * Join game
+   */
+  function joinGame() {
+
+  }
+})
 
 .controller('ChatsCtrl', function($scope, Chats) {
   // With the new view caching in Ionic, Controllers are only called
