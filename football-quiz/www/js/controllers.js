@@ -22,12 +22,18 @@ angular.module('starter.controllers', [])
       $scope.rooms = data
     })
 })
-.controller('DashCtrl', function($scope, Room, $state, Answer) {
+.controller('DashCtrl', function($scope, Room, $state, Question, Answer) {
   $scope.answer = answer;
+  $scope.question = null
 
   function answer(value) {
     Answer.create()
   }
+
+  Question.get()
+    .success(function (data) {
+      $scope.question = data
+    })
 })
 
 .controller('ChatsCtrl', function($scope, Chats) {

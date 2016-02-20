@@ -38,7 +38,13 @@ router.get('/:roomId', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-  req.end()
+  Answer.createAsync({})
+    .then(answer => {
+      res
+        .status(201)
+        .json(answer)
+    })
+    .catch(handleError)
 })
 
 export default router

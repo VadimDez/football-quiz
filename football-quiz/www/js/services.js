@@ -81,7 +81,7 @@ angular.module('starter.services', [])
 .factory('Question', function ($http) {
   return {
     get: function () {
-      return $http.get(url + '/question')
+      return $http.get(url + '/questions')
     }
   }
 });
