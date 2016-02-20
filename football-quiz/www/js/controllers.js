@@ -15,12 +15,55 @@ angular.module('starter.controllers', [])
     }
   })
 
-.controller('JoinCtrl', function($scope, Room, $state) {
-  $scope.rooms = []
+.controller('JoinCtrl', function($scope, Room, $state, $ionicModal) {
+  $scope.rooms = [];
+  $scope.username = '';
+  $scope.join = join;
+  $scope.done = done;
+
   Room.all()
     .success(function (data) {
       $scope.rooms = data
-    })
+    });
+
+  console.log('tasd');
+  function join(roomId) {
+    console.log('asd');
+    $scope.modal.show();
+
+    // tab.dash({roomId: roomId})
+  }
+
+  function done() {
+    $scope.modal.hide();
+  }
+
+  $ionicModal.fromTemplateUrl('templates/username-modal.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function(modal) {
+    $scope.modal = modal;
+  });
+  $scope.openModal = function() {
+    $scope.modal.show();
+  };
+  $scope.closeModal = function() {
+    $scope.modal.hide();
+  };
+
+
+  //Cleanup the modal when we're done with it!
+  $scope.$on('$destroy', function() {
+    $scope.modal.remove();
+  });
+  // Execute action on hide modal
+  $scope.$on('modal.hidden', function() {
+    // Execute action
+  });
+  // Execute action on remove modal
+  $scope.$on('modal.removed', function() {
+    // Execute action
+  });
 })
 .controller('DashCtrl', function($scope, Room, $state, Question, Answer) {
   $scope.answer = answer;

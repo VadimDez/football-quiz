@@ -10,12 +10,12 @@ import Answer from '../models/Answer'
 let router = new Router()
 
 router.get('/', (req, res) => {
-  res.json([
+  res.json(
     {
-      question: 'true?!',
+      text: 'true?!',
       answer: true
     }
-  ])
+  )
 })
 
 export default router
