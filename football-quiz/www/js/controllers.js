@@ -3,7 +3,6 @@ angular.module('starter.controllers', [])
   .controller('InitCtrl', function ($scope, $state, Room) {
 
     $scope.createGame = createGame;
-    $scope.joinGame = joinGame;
 
     /**
      * Create game
@@ -14,18 +13,18 @@ angular.module('starter.controllers', [])
           $state.go('tab.dash')
         })
     }
-
-    /**
-     * Join game
-     */
-    function joinGame() {
-
-    }
   })
 
+.controller('JoinCtrl', function($scope, Room, $state) {
+  $scope.rooms = []
+  Room.all()
+    .success(function (data) {
+      $scope.rooms = data
+    })
+})
 .controller('DashCtrl', function($scope, Room, $state) {
   $scope.answer = answer;
-  
+
   function answer(value) {
     console.log(value);
   }

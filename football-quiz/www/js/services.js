@@ -56,6 +56,9 @@ angular.module('starter.services', [])
         method: 'POST',
         url: '//localhost:9000/rooms/'
       })
+    },
+    all: function () {
+      return $http.get('//localhost:9000/rooms/')
     }
   }
 }]);

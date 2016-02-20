@@ -37,6 +37,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       controller: 'InitCtrl'
     })
 
+    .state('join', {
+      url: '/join',
+      templateUrl: 'templates/join.html',
+      controller: 'JoinCtrl'
+    })
+
   // setup an abstract state for the tabs directive
     .state('tab', {
     url: '/tab',

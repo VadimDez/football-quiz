@@ -15,7 +15,7 @@ function handleError(res) {
   }
 }
 
-router.get('/:id', (req, res) => {
+router.get('/', (req, res) => {
   Room.findAsync({})
     .then(rooms => {
       res.json(rooms);
@@ -29,7 +29,9 @@ router.post('/', (req, res) => {
     created_at: new Date()
   })
     .then(room => {
-      res.json(room)
+      res
+        .statusCode(200)
+        .json(room)
     })
     .catch(handleError(res))
 })
