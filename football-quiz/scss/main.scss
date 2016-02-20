@@ -18,6 +18,10 @@ button.button {
 	padding-left: 50px;
 	padding-right: 50px;
 }
+button.button-outline {
+	border-color: #fff !important;
+	color: #fff !important;
+}
 
 .modal {
 	background-color: $green;
