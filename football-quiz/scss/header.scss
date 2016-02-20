@@ -28,16 +28,6 @@ header.default {
 		}
 	}
 }
-.initial-container {
-	display: flex;
-	justify-content: center;
-	flex-direction: column;
-	button, a {
-		margin-bottom: 10px;
-		font-size: 26px;
-		font-weight: 700;
-	}
-}
 .question-sign {
 	position: absolute;
 	top: 10px;
