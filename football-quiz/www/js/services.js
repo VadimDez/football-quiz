@@ -52,10 +52,13 @@ angular.module('starter.services', [])
 
 .factory('Room', ['$http', function ($http) {
   return {
-    create: function () {
+    create: function (username) {
       return $http({
         method: 'POST',
-        url: url + '/rooms/'
+        url: url + '/rooms/',
+        data: {
+          username: username
+        }
       })
     },
     all: function () {

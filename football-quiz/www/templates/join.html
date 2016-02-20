@@ -9,7 +9,7 @@
         <ion-list>
             <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="room in rooms" type="item-text-wrap">
                 <h2>{{ room.hash }}</h2>
-                <button ng-click="join({{ room.hash }})" class="button button-outline button-light">Join</button>
+                <button ng-click="join('{{ room._id }}')" class="button button-outline button-light">Join</button>
             </ion-item>
         </ion-list>
     </ion-content>

@@ -1,18 +1,38 @@
 angular.module('starter.controllers', [])
 
-  .controller('InitCtrl', function ($scope, $state, Room) {
-
+  .controller('InitCtrl', function ($scope, $state, Room, $ionicModal) {
+    $scope.user = {username: ''};
     $scope.createGame = createGame;
+    $scope.done = done;
 
     /**
      * Create game
      */
     function createGame() {
-      Room.create()
+      $scope.modal.show();
+    }
+
+    function done() {
+      $scope.modal.hide();
+      Room.create($scope.user.username)
         .success(function (room) {
           $state.go('tab.dash')
         })
     }
+
+    $ionicModal.fromTemplateUrl('templates/username-modal.html', {
+      scope: $scope,
+      animation: 'slide-in-up'
+    }).then(function(modal) {
+      $scope.modal = modal;
+    });
+    $scope.closeModal = function() {
+      $scope.modal.hide();
+    };
+
+    $scope.$on('$destroy', function() {
+      $scope.modal.remove();
+    });
   })
 
 .controller('JoinCtrl', function($scope, Room, $state, $ionicModal) {
@@ -65,7 +85,7 @@ angular.module('starter.controllers', [])
     $scope.modal.remove();
   });
 })
-.controller('DashCtrl', function($scope, Room, $state, Question, Answer) {
+.controller('DashCtrl', function($scope, Room, $state, Question, Answer, $ionicModal) {
   $scope.answer = answer;
   $scope.question = null
 
@@ -73,6 +93,7 @@ angular.module('starter.controllers', [])
     $state.go('result-gif');
     //Answer.create()
   }
+
 
   Question.get()
     .success(function (data) {

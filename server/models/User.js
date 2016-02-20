@@ -15,4 +15,4 @@ let UserSchema = new mongoose.Schema({
   }
 })
 
-export default mongoose.model('User', RoomSchema)
+export default mongoose.model('User', UserSchema)
