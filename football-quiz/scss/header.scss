@@ -1,4 +1,8 @@
+.title {
+	display: none;
+}
 header {
+	margin: 60px 0 30px 0;
 	.logo {
 		display: flex;
 		align-items: center;
@@ -7,7 +11,27 @@ header {
 			display: block;
 			width: 100%;
 			text-align: center;
-			background-color: #ff0;
+			img {
+				max-width: 200px;
+			}
 		}
+	}
+}
+header.default {
+	margin: 10px 0 30px 0;
+	.logo {
+		a {
+			img {
+				max-width: 80px;
+			}
+		}
+	}
+}
+.initial-container {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	button, a {
+		margin-bottom: 10px;
 	}
 }

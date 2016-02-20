@@ -1,7 +1,18 @@
-<ion-view view-title="Football quiz">
-  <ion-content class="padding">
-    <h2>Question...</h2>
-    <button ng-click="answer(true)" class="button button-block button-positive">YES</button>
-    <button ng-click="answer(false)" class="button button-block button-positive">NO</button>
-  </ion-content>
+<ion-view hide-nav-bar="true">
+    <ion-content class="padding">
+	    <header class="default">
+			<div class="row">
+				<div class="col col-center logo">
+					<a href="#" title="home"><img src="/img/sofa.png"></a>
+				</div>
+			</div>
+		</header>
+		<div class="row question">
+			<div class="col col-center">
+			    <h2>Question...</h2>
+			    <button ng-click="answer(true)" class="button button-block button-positive">YES</button>
+			    <button ng-click="answer(false)" class="button button-block button-negative">NO</button>
+			</div>
+		</div>
+    </ion-content>
 </ion-view>
