@@ -9,8 +9,9 @@ let router = new Router()
 
 function handleError(res) {
   return error => {
+    console.error(error);
     res
-      .statusCode(400)
+      .status(400)
       .end()
   }
 }
@@ -30,7 +31,7 @@ router.post('/', (req, res) => {
   })
     .then(room => {
       res
-        .statusCode(200)
+        .status(200)
         .json(room)
     })
     .catch(handleError(res))
