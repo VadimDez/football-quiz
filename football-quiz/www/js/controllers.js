@@ -117,10 +117,15 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('ResultExplainCtrl', function ($scope, $state) {
+.controller('ResultExplainCtrl', function ($scope, $state, Question) {
   $scope.back = function () {
     $state.go('tab.dash', {roomId: $state.params.roomId, question: parseInt($state.params.question, 10) + 1});
   }
+
+  Question.get($state.params.roomId)
+    .success(function (questions) {
+      $scope.question = questions[$state.params.question]
+    })
 })
 
 .controller('ChatsCtrl', function($scope, Chats) {

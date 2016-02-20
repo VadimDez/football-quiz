@@ -74,27 +74,29 @@ router.post('/join', (req, res) => {
   Room.findOneAsync({_id: mongoose.Types.ObjectId(roomId)})
     .then(room => {
 
-      if (room) {
-        User.createAsync({
-          username: req.body.username,
-          session: req.sessionID,
-          room: room
-        })
-          .then(user => {
-
-            if (user) {
-              room.users.push(user)
-
-              room.saveAsync()
-                .then(() => {
-                  res.end();
-                  return;
-                })
-                .catch(handleError(res))
-            }
-          })
-          .catch(handleError(res))
+      if (!room) {
+        res.status(404).end()
+        return
       }
+      User.createAsync({
+        username: req.body.username,
+        session: req.sessionID,
+        room: room
+      })
+        .then(user => {
+
+          if (user) {
+            room.users.push(user)
+
+            room.saveAsync()
+              .then(() => {
+                res.end();
+                return;
+              })
+              .catch(handleError(res))
+          }
+        })
+        .catch(handleError(res))
     })
     .catch(handleError(res))
 })
