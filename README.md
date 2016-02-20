@@ -14,3 +14,11 @@ serve ionic
 ```
 ionic serve
 ```
+
+Mongo db
+
+navigate into mongo db folder and run:
+
+```
+./bin/mongod --dbpath {path}
+```
