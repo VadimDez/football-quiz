@@ -19,9 +19,17 @@ navigate into mongo db folder and run:
 
 ### App
 
-install ionic and cordova  globally:
+
+install ionic and cordova globally:
+
 ```
 npm install -g cordova ionic
+```
+
+install dependencies
+
+```
+npm i
 ```
 
 serve ionic
