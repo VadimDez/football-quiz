@@ -1,6 +1,6 @@
 .pane {
 	width: 100%;
-	background-color: #70b31d;
+	background-color: $green;
 	background-position: center center;
 	background-repeat: repeat;
 	background-image: url(/img/background.jpg);
@@ -8,4 +8,32 @@
 
 .center-content {
 	text-align: center;
+}
+.item {
+	background-color: transparent;
+}
+
+button.button {
+	font-size: 28px;
+	padding-left: 50px;
+	padding-right: 50px;
+}
+
+.modal {
+	background-color: $green;
+	text-align: center;
+	
+	input::-webkit-input-placeholder {
+		color: #fff !important;
+		font-size: 20px;
+	}
+	input {
+		color: #fff;
+		font-size: 20px;
+	}
+	button.button-outline {
+		font-size: 28px;
+		color: #fff;
+		border-color: #fff;
+	}
 }
