@@ -22,11 +22,11 @@ angular.module('starter.controllers', [])
       $scope.rooms = data
     })
 })
-.controller('DashCtrl', function($scope, Room, $state) {
+.controller('DashCtrl', function($scope, Room, $state, Answer) {
   $scope.answer = answer;
 
   function answer(value) {
-    console.log(value);
+    Answer.create()
   }
 })
 

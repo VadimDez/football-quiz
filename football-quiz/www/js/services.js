@@ -1,3 +1,4 @@
+var url = '//localhost:9000';
 angular.module('starter.services', [])
 
 .factory('Chats', function() {
@@ -54,11 +55,25 @@ angular.module('starter.services', [])
     create: function () {
       return $http({
         method: 'POST',
-        url: '//localhost:9000/rooms/'
+        url: url + '/rooms/'
       })
     },
     all: function () {
-      return $http.get('//localhost:9000/rooms/')
+      return $http.get(url + '/rooms/')
+    }
+  }
+}])
+
+.factory('Answer', ['$http', function ($http) {
+  return {
+    create: function () {
+      return $http({
+        method: 'POST',
+        url: url + '/answers',
+        data: {
+          test: 1
+        }
+      })
     }
   }
 }]);
