@@ -44,7 +44,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     })
 
     .state('result-gif', {
-      url: '/result-gif/:roomId/:question',
+      url: '/result-gif/:roomId/:question/:isTrue',
       templateUrl: 'templates/result-gif.html',
       controller: 'ResultGifCtrl'
     })

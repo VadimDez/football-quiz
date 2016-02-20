@@ -88,15 +88,19 @@ angular.module('starter.controllers', [])
 .controller('DashCtrl', function($scope, Room, $state, Question, Answer) {
   $scope.answer = answer;
   $scope.question = null
+  var questions = [];
 
   function answer(value) {
-    $state.go('result-gif', {roomId: $state.params.roomId, question: $state.params.question});
-    //Answer.create(questioin._id, value)
+    Answer.create(questions[$state.params.question]._id, value, $state.params.roomId)
+      .success(function (answer) {
+        $state.go('result-gif', {roomId: $state.params.roomId, question: $state.params.question, isTrue: answer.value});
+      })
   }
 
 
   Question.get($state.params.roomId)
     .success(function (data) {
+      questions = data
       if (data && data.hasOwnProperty(parseInt($state.params.question, 10))) {
         $scope.question = data[parseInt($state.params.question, 10)]
       } else {
@@ -106,6 +110,8 @@ angular.module('starter.controllers', [])
 })
 
 .controller('ResultGifCtrl', function ($scope, $state) {
+  $scope.isTrue = $state.params.isTrue
+  console.log($scope.isTrue);
   $scope.next = function () {
     $state.go('result-explain', {roomId: $state.params.roomId, question: $state.params.question})
   };

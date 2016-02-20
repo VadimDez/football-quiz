@@ -79,13 +79,14 @@ angular.module('starter.services', [])
 
 .factory('Answer', ['$http', function ($http) {
   return {
-    create: function (id, answer) {
+    create: function (id, answer, room) {
       return $http({
         method: 'POST',
         url: url + '/answers',
         data: {
           id: id,
-          answer: answer
+          answer: answer,
+          room: room
         }
       })
     }

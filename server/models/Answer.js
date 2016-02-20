@@ -14,6 +14,10 @@ let AnswerSchema = new mongoose.Schema({
   question: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Answer'
+  },
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
   }
 });
 

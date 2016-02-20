@@ -3,8 +3,11 @@
  */
 
 import {Router} from 'express'
-import Romm from '../models/Room'
+import Room from '../models/Room'
+import Question from './../models/Question'
 import Answer from '../models/Answer'
+import User from '../models/User'
+import mongoose from 'mongoose'
 
 let router = new Router()
 
@@ -38,13 +41,34 @@ router.get('/:roomId', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-  Answer.createAsync({})
-    .then(answer => {
-      res
-        .status(201)
-        .json(answer)
-    })
-    .call(handleError(res))
+  Question.findOneAsync({
+    _id: mongoose.Types.ObjectId(req.body.id)
+  }).then(question => {
+    Room.findOneAsync({_id: mongoose.Types.ObjectId(req.body.room)})
+      .then(room => {
+
+        User.findOneAsync({
+          room: room,
+          session: req.sessionID
+        }).then(user => {
+          Answer.createAsync({
+            question: question,
+            room: room,
+            user: user,
+            value: question.answer === req.body.answer
+          })
+            .then(answer => {
+              res
+                .status(201)
+                .json(answer)
+            })
+            .catch(handleError(res))
+        })
+          .catch(handleError(res))
+      })
+      .catch(handleError(res))
+  })
+    .catch(handleError(res))
 })
 
 export default router
