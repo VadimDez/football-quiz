@@ -4,3 +4,4 @@ football-quiz/platforms/
 football-quiz/plugins/
 server/node_modules/
 server/npm-debug*
+server/dist/*
