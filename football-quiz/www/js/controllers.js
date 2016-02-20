@@ -1,25 +1,33 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope, Room) {
+  .controller('InitCtrl', function ($scope, $state, Room) {
 
-  $scope.createGame = createGame;
-  $scope.joinGame = joinGame;
+    $scope.createGame = createGame;
+    $scope.joinGame = joinGame;
 
-  /**
-   * Create game
-   */
-  function createGame() {
-    Room.create()
-      .success(function (room) {
-        console.log(room);
-      })
-  }
+    /**
+     * Create game
+     */
+    function createGame() {
+      Room.create()
+        .success(function (room) {
+          $state.go('tab.dash')
+        })
+    }
 
-  /**
-   * Join game
-   */
-  function joinGame() {
+    /**
+     * Join game
+     */
+    function joinGame() {
 
+    }
+  })
+
+.controller('DashCtrl', function($scope, Room, $state) {
+  $scope.answer = answer;
+  
+  function answer(value) {
+    console.log(value);
   }
 })
 
