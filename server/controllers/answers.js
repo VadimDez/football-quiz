@@ -73,4 +73,23 @@ router.post('/', (req, res) => {
     .catch(handleError(res))
 })
 
+router.get('/aggregate/:roomId', (req, res) => {
+  Answer.aggregateAsync([
+    {
+      $match: {
+        room: mongoose.Types.ObjectId(req.params.roomId)
+      }
+    }, {
+      $group: {
+        _id: '$user',
+        total: { $sum: 1 }
+      }
+    }
+  ])
+    .then(data => {
+      res.json(data)
+    })
+    .catch(handleError(res))
+})
+
 export default router
