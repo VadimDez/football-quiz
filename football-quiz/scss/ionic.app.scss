@@ -17,6 +17,11 @@ $dark:                            #444 !default;
 
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
+@import url(https://fonts.googleapis.com/css?family=Amatic+SC:700);
+
+*, h1, h2, h3, h4 , h5, h6, p {
+	font-family: 'Amatic SC', Arial !important;
+}
 
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
