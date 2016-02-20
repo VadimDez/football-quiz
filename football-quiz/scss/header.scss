@@ -19,6 +19,7 @@ header {
 }
 header.default {
 	margin: 20px 0 30px 0;
+	position: relative;
 	.logo {
 		a {
 			img {
@@ -35,5 +36,15 @@ header.default {
 		margin-bottom: 10px;
 		font-size: 26px;
 		font-weight: 700;
+	}
+}
+.question-sign {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	width: 60px;
+	img {
+		max-width: 100%;
+		height: auto;
 	}
 }

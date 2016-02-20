@@ -1,17 +1,18 @@
 <ion-view hide-nav-bar="true">
     <ion-content class="padding">
 	    <header class="default">
+		    <div class="question-sign"><img src="/img/bvb_logo.png"></div>
 			<div class="row">
 				<div class="col col-center logo">
 					<a href="#" title="home"><img src="/img/sofa.png"></a>
 				</div>
 			</div>
 		</header>
-		<div class="row result center-content">
+		<div class="row question center-content" ng-show="question">
 			<div class="col col-center">
-			    <img class="result-gif" ng-src="http://giphy.com/gifs/yes-snoop-dogg-Kzvsru1JqQg4E">
+			    <h2>{{ question.result }}</h2>
+			    <p>{{ question.explain }}</p>
 			</div>
 		</div>
-		<button ng-click="back()">back</button>
     </ion-content>
 </ion-view>
