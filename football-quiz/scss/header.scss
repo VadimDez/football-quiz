@@ -1,0 +1,13 @@
+header {
+	.logo {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		a {
+			display: block;
+			width: 100%;
+			text-align: center;
+			background-color: #ff0;
+		}
+	}
+}
