@@ -79,12 +79,13 @@ angular.module('starter.services', [])
 
 .factory('Answer', ['$http', function ($http) {
   return {
-    create: function () {
+    create: function (id, answer) {
       return $http({
         method: 'POST',
         url: url + '/answers',
         data: {
-          test: 1
+          id: id,
+          answer: answer
         }
       })
     }
@@ -93,8 +94,8 @@ angular.module('starter.services', [])
 
 .factory('Question', function ($http) {
   return {
-    get: function () {
-      return $http.get(url + '/questions')
+    get: function (roomId) {
+      return $http.get(url + '/questions/' + roomId)
     }
   }
 });

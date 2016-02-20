@@ -24,7 +24,7 @@ router.get('/', (req, res) => {
         .status(200)
         .json(answers)
     })
-    .catch(handleError)
+    .call(handleError(res))
 })
 
 router.get('/:roomId', (req, res) => {
@@ -34,7 +34,7 @@ router.get('/:roomId', (req, res) => {
         .status(200)
         .json(answers)
     })
-    .catch(handleError)
+    .call(handleError(res))
 })
 
 router.post('/', (req, res) => {
@@ -44,7 +44,7 @@ router.post('/', (req, res) => {
         .status(201)
         .json(answer)
     })
-    .catch(handleError)
+    .call(handleError(res))
 })
 
 export default router

@@ -5,12 +5,13 @@
 import {Router} from 'express'
 import Room from './../models/Room'
 import User from './../models/User'
+import Question from './../models/Question'
 import mongoose from 'mongoose'
 
 let router = new Router()
 
 function handleError(res) {
-  return error => {
+  return (error) => {
     console.error(error);
     res
       .status(400)
@@ -41,13 +42,20 @@ router.post('/', (req, res) => {
       })
         .then(user => {
 
-          room.users.push(user);
+          Question.aggregateAsync([{
+            $sample: { size: 3 }
+          }])
+            .then(questions => {
+              room.users.push(user)
+              room.questions = questions
 
-          room.saveAsync()
-            .then(() => {
-              res
-                .status(201)
-                .json(room)
+              room.saveAsync()
+                .then(() => {
+                  res
+                    .status(201)
+                    .json(room)
+                })
+                .catch(handleError(res))
             })
             .catch(handleError(res))
         })

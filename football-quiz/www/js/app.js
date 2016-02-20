@@ -44,13 +44,13 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     })
 
     .state('result-gif', {
-      url: '/result-gif',
+      url: '/result-gif/:roomId/:question',
       templateUrl: 'templates/result-gif.html',
       controller: 'ResultGifCtrl'
     })
 
     .state('result-explain', {
-      url: '/result-explain',
+      url: '/result-explain/:roomId/:question',
       templateUrl: 'templates/result-explain.html',
       controller: 'ResultExplainCtrl'
     })
@@ -65,7 +65,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   // Each tab has its own nav history stack:
 
   .state('tab.dash', {
-    url: '/dash/:roomId',
+    url: '/dash/:roomId/:question',
     views: {
       'tab-dash': {
         templateUrl: 'templates/tab-dash.html',

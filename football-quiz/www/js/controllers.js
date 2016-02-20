@@ -16,7 +16,7 @@ angular.module('starter.controllers', [])
       $scope.modal.hide();
       Room.create($scope.user.username)
         .success(function (room) {
-          $state.go('tab.dash')
+          $state.go('tab.dash', {roomId: room._id, question: 0})
         })
     }
 
@@ -62,7 +62,7 @@ angular.module('starter.controllers', [])
   function done() {
     localStorage.setItem('username', $scope.user.username);
 
-    $state.go('tab.dash', {roomId: roomId});
+    $state.go('tab.dash', {roomId: roomId, question: 0});
     $scope.modal.hide();
 
     Room.join(roomId, $scope.user.username)
@@ -85,31 +85,33 @@ angular.module('starter.controllers', [])
     $scope.modal.remove();
   });
 })
-.controller('DashCtrl', function($scope, Room, $state, Question, Answer, $ionicModal) {
+.controller('DashCtrl', function($scope, Room, $state, Question, Answer) {
+  var questions = [];
   $scope.answer = answer;
   $scope.question = null
 
   function answer(value) {
-    $state.go('result-gif');
-    //Answer.create()
+    $state.go('result-gif', {roomId: $state.params.roomId, question: $state.params.question});
+    //Answer.create(questioin._id, value)
   }
 
 
-  Question.get()
+  Question.get($state.params.roomId)
     .success(function (data) {
-      $scope.question = data
+      $scope.question = data[parseInt($state.params.question, 10)]
+      questions = data
     })
 })
 
 .controller('ResultGifCtrl', function ($scope, $state) {
   $scope.next = function () {
-    $state.go('result-explain')
+    $state.go('result-explain', {roomId: $state.params.roomId, question: $state.params.question})
   };
 })
 
 .controller('ResultExplainCtrl', function ($scope, $state) {
   $scope.back = function () {
-    $state.go('tab.dash');
+    $state.go('tab.dash', {roomId: $state.params.roomId, question: parseInt($state.params.question, 10) + 1});
   }
 })
 
