@@ -43,6 +43,18 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       controller: 'JoinCtrl'
     })
 
+    .state('result-gif', {
+      url: '/result-gif',
+      templateUrl: 'templates/result-gif.html',
+      controller: 'ResultGifCtrl'
+    })
+
+    .state('result-explain', {
+      url: '/result-explain',
+      templateUrl: 'templates/result-explain.html',
+      controller: 'ResultExplainCtrl'
+    })
+
   // setup an abstract state for the tabs directive
     .state('tab', {
     url: '/tab',

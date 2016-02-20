@@ -70,13 +70,26 @@ angular.module('starter.controllers', [])
   $scope.question = null
 
   function answer(value) {
-    Answer.create()
+    $state.go('result-gif');
+    //Answer.create()
   }
 
   Question.get()
     .success(function (data) {
       $scope.question = data
     })
+})
+
+.controller('ResultGifCtrl', function ($scope, $state) {
+  $scope.next = function () {
+    $state.go('result-explain')
+  };
+})
+
+.controller('ResultExplainCtrl', function ($scope, $state) {
+  $scope.back = function () {
+    $state.go('tab.dash');
+  }
 })
 
 .controller('ChatsCtrl', function($scope, Chats) {
