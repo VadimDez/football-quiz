@@ -88,6 +88,8 @@ angular.module('starter.controllers', [])
 .controller('DashCtrl', function($scope, Room, $state, Question, Answer) {
   $scope.answer = answer;
   $scope.question = null
+  $scope.number = parseInt($state.params.question, 10) + 1
+
   var questions = [];
 
   function answer(value) {
