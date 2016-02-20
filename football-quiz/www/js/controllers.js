@@ -16,7 +16,7 @@ angular.module('starter.controllers', [])
       $scope.modal.hide();
       Room.create($scope.user.username)
         .success(function (room) {
-          $state.go('tab.dash', {roomId: room._id, question: 0})
+          $state.go('questions', {roomId: room._id, question: 0})
         })
     }
 
@@ -62,7 +62,7 @@ angular.module('starter.controllers', [])
   function done() {
     localStorage.setItem('username', $scope.user.username);
 
-    $state.go('tab.dash', {roomId: roomId, question: 0});
+    $state.go('questions', {roomId: roomId, question: 0});
     $scope.modal.hide();
 
     Room.join(roomId, $scope.user.username)
@@ -119,7 +119,7 @@ angular.module('starter.controllers', [])
 
 .controller('ResultExplainCtrl', function ($scope, $state, Question) {
   $scope.back = function () {
-    $state.go('tab.dash', {roomId: $state.params.roomId, question: parseInt($state.params.question, 10) + 1});
+    $state.go('questions', {roomId: $state.params.roomId, question: parseInt($state.params.question, 10) + 1});
   }
 
   Question.get($state.params.roomId)
