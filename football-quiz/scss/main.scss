@@ -37,3 +37,26 @@ button.button {
 		border-color: #fff;
 	}
 }
+.initial-container {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	button, a {
+		margin-bottom: 10px;
+		font-size: 26px;
+		font-weight: 700;
+	}
+	.opener-text {
+		margin-top: 20px;
+		color: #fff;
+		text-align: center;
+		font-size: 30px;
+		line-height: 1.2em;
+		p:last-child {
+			color: rgba(0,0,0,0.85);
+			font-size: 24px;
+			margin-top: 20px;
+			line-height: 1.1em;
+		}
+	}
+}
