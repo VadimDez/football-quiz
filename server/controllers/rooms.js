@@ -84,10 +84,7 @@ router.post('/join', (req, res) => {
         room: room
       })
         .then(user => {
-
           if (user) {
-            room.users.push(user)
-
             room.saveAsync()
               .then(() => {
                 res.end();

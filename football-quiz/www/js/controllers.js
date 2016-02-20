@@ -13,6 +13,7 @@ angular.module('starter.controllers', [])
     }
 
     function done() {
+      localStorage.setItem('username', $scope.user.username);
       $scope.modal.hide();
       Room.create($scope.user.username)
         .success(function (room) {
@@ -145,17 +146,7 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
-  $scope.chat = Chats.get($stateParams.chatId);
-})
 
-.controller('AccountCtrl', function($scope) {
-  $scope.settings = {
-    enableFriends: true
-  };
-})
-
-
-.controller('ResultCtrl', function($scope) {
-
+.controller('ResultCtrl', function($scope, $state, Answer) {
+  Answer.results($state.params.roomId)
 });

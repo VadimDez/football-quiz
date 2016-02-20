@@ -86,9 +86,13 @@ angular.module('starter.services', [])
         data: {
           id: id,
           answer: answer,
-          room: room
+          room: room,
+          username: localStorage.getItem('username')
         }
       })
+    },
+    results: function(roomId) {
+      return $http(url + '/answers/aggregate/' + roomId)
     }
   }
 }])

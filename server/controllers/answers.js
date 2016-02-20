@@ -50,9 +50,14 @@ router.post('/', (req, res) => {
       .then(room => {
 
         User.findOneAsync({
-          room: room,
-          session: req.sessionID
+          room: room._id,
+          username: req.body.username
         }).then(user => {
+          if (!user) {
+            res.status(400)
+              .end()
+            return;
+          }
           Answer.createAsync({
             question: question,
             room: room,

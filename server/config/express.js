@@ -28,11 +28,12 @@ module.exports = function(app) {
   app.use(session({
     secret: 'football-quiz',
     saveUninitialized: true,
-    resave: false,
+    resave: true,
     store: new mongoStore({
       mongooseConnection: mongoose.connection,
       db: 'football-quiz'
-    })
+    }),
+    cookie: { maxAge: 999999 }
   }));
 
   app.set('appPath', path.join(path.normalize(__dirname + '/..'), 'client'));
