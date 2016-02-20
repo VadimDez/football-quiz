@@ -8,10 +8,10 @@ var babel = require('gulp-babel')
 
 gulp.task('babel', function () {
   return gulp.src([
-    '!./dist/*',
     '**/*.js',
+    '!./dist/**',
     '!gulpfile.js',
-    '!./node_modules/**/*.js'
+    '!./node_modules/**'
   ])
     .pipe(babel({
       presets: ['es2015']
@@ -23,10 +23,7 @@ gulp.task('develop', ['babel'], function () {
   nodemon({
     script: './dist/index.js',
     ext: 'js',
-    tasks: function () {
-      console.log('here?')
-      return ['babel']
-    },
+    tasks: ['babel'],
     ignore : [
       './node_modules/**',
       './dist/**'

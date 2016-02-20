@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope) {
+.controller('DashCtrl', function($scope, Room) {
 
   $scope.createGame = createGame;
   $scope.joinGame = joinGame;
@@ -9,7 +9,10 @@ angular.module('starter.controllers', [])
    * Create game
    */
   function createGame() {
-
+    Room.create()
+      .success(function (room) {
+        console.log(room);
+      })
   }
 
   /**

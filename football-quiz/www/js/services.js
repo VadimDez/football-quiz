@@ -47,4 +47,15 @@ angular.module('starter.services', [])
       return null;
     }
   };
-});
+})
+
+.factory('Room', ['$http', function ($http) {
+  return {
+    create: function () {
+      return $http({
+        method: 'POST',
+        url: '//localhost:9000/rooms/'
+      })
+    }
+  }
+}]);
