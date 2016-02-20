@@ -27,17 +27,6 @@ router.get('/', (req, res) => {
     .catch(handleError)
 })
 
-
-router.get('/', (req, res) => {
-  Answer.findAsync({})
-    .then(answers => {
-      res
-        .statusCode(200)
-        .json(answers)
-    })
-    .catch(handleError)
-})
-
 router.get('/:roomId', (req, res) => {
   Answer.findAsync({room: req.params.roomId})
     .then(answers => {

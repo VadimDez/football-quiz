@@ -10,6 +10,10 @@ let AnswerSchema = new mongoose.Schema({
   room: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Room'
+  },
+  question: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Answer'
   }
 });
 

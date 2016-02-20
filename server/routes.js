@@ -6,6 +6,7 @@
 
 import roomsCtrl from './controllers/rooms'
 import answersCtrl from './controllers/answers'
+import questionsCtrl from './controllers/questions'
 
 module.exports = function (app) {
 
@@ -19,6 +20,7 @@ module.exports = function (app) {
 
   app.use('/rooms', roomsCtrl)
   app.use('/answers', answersCtrl)
+  app.use('/questions', questionsCtrl)
 
   app.route('/:url(api|auth|components|app|bower_components|assets)/*')
     .get((req, res) => {
