@@ -37,3 +37,17 @@ serve ionic
 ```
 ionic serve
 ```
+
+#### INFO
+
+Example question format:
+
+```js
+[{
+    question: String,
+    explanation: String,
+    answer: Boolean,
+    player: String,
+    team: String
+}]
+```
