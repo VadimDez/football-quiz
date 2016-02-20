@@ -44,7 +44,9 @@ router.post('/', (req, res) => {
   Question.findOneAsync({
     _id: mongoose.Types.ObjectId(req.body.id)
   }).then(question => {
-    Room.findOneAsync({_id: mongoose.Types.ObjectId(req.body.room)})
+    Room.findOneAsync({
+      _id: mongoose.Types.ObjectId(req.body.room)
+    })
       .then(room => {
 
         User.findOneAsync({
