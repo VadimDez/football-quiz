@@ -1,7 +1,16 @@
 .question {
+	text-align: center;
 	h2 {
 		display: block;
 		margin-bottom: 40px;
 		text-align: center;
+	}
+	button {
+		width: 30%;
+		margin: 0 10px;
+		img {
+			max-width: 100%;
+			height: auto;
+		}
 	}
 }
