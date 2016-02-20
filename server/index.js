@@ -5,6 +5,7 @@
 import express from 'express'
 import mongoose from 'mongoose'
 import http from 'http'
+import seed from './config/seed';
 
 const mongodbURI = 'mongodb://localhost/football-quiz'
 mongoose.connect(mongodbURI)
@@ -12,6 +13,9 @@ mongoose.connection.on('error', function (error) {
   console.error(`Mongodb error: ${error}`);
   process.exit(-1);
 })
+
+seed();
+
 
 
 let app = express()
