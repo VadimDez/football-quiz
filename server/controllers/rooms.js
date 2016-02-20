@@ -41,4 +41,8 @@ router.put('/:id', (req, res) => {
   res.json({id: req.params.id || 0});
 })
 
+router.post('/join', (req, res) => {
+  
+})
+
 export default router

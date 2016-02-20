@@ -60,6 +60,16 @@ angular.module('starter.services', [])
     },
     all: function () {
       return $http.get(url + '/rooms/')
+    },
+    join: function (id, username) {
+      return $http({
+        method: 'POST',
+        url: url + '/rooms/join/',
+        data: {
+          id: id,
+          username: username
+        }
+      })
     }
   }
 }])

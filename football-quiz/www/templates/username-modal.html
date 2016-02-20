@@ -1,11 +1,12 @@
 <ion-modal-view>
     <ion-header-bar>
         <h1 class="title">Info</h1>
+        <button class="button" ng-click="closeModal()">Close</button>
     </ion-header-bar>
     <ion-content>
         <div class="list">
             <label class="item item-input">
-                <input type="text" placeholder="Username" ng-modal="username">
+                <input type="text" placeholder="Username" ng-model="user.username">
             </label>
         </div>
         <button ng-click="done()">Submit</button>

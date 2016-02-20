@@ -6,13 +6,13 @@
 
 let mongoose = require('bluebird').promisifyAll(require('mongoose'))
 
-let RoomSchema = new mongoose.Schema({
-  hash: String,
-  created_at: {type: Date},
-  users: [{
+let UserSchema = new mongoose.Schema({
+  username: String,
+  session: String,
+  room: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User'
-  }]
+    ref: 'Room'
+  }
 })
 
-export default mongoose.model('Room', RoomSchema)
+export default mongoose.model('User', RoomSchema)
