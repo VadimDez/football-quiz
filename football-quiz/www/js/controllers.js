@@ -86,7 +86,6 @@ angular.module('starter.controllers', [])
   });
 })
 .controller('DashCtrl', function($scope, Room, $state, Question, Answer) {
-  var questions = [];
   $scope.answer = answer;
   $scope.question = null
 
@@ -98,8 +97,11 @@ angular.module('starter.controllers', [])
 
   Question.get($state.params.roomId)
     .success(function (data) {
-      $scope.question = data[parseInt($state.params.question, 10)]
-      questions = data
+      if (data && data.hasOwnProperty(parseInt($state.params.question, 10))) {
+        $scope.question = data[parseInt($state.params.question, 10)]
+      } else {
+        $state.go('result', {roomId: $state.params.roomId})
+      }
     })
 })
 
@@ -138,4 +140,9 @@ angular.module('starter.controllers', [])
   $scope.settings = {
     enableFriends: true
   };
+})
+
+
+.controller('ResultCtrl', function($scope) {
+
 });

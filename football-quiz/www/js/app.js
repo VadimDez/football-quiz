@@ -102,6 +102,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     }
   })
+
+    .state('result', {
+      url: '/result/:roomId',
+      templateUrl: 'templates/result.html',
+      controller: 'ResultCtrl'
+    })
   ;
 
   $urlRouterProvider.otherwise('/start');
