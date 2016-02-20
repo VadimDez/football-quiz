@@ -2,6 +2,7 @@
 football-quiz/node_modules/
 football-quiz/platforms/
 football-quiz/plugins/
+football-quiz/www/css/ionic.app.*
 server/node_modules/
 server/npm-debug*
 server/dist/*
