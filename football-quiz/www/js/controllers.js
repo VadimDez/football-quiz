@@ -20,21 +20,21 @@ angular.module('starter.controllers', [])
   $scope.username = '';
   $scope.join = join;
   $scope.done = done;
+  var roomId;
 
   Room.all()
     .success(function (data) {
       $scope.rooms = data
     });
 
-  console.log('tasd');
-  function join(roomId) {
-    console.log('asd');
+  function join(id) {
+    roomId = id
     $scope.modal.show();
 
-    // tab.dash({roomId: roomId})
   }
 
   function done() {
+    $state.go('tab.dash', {roomId: roomId});
     $scope.modal.hide();
   }
 
