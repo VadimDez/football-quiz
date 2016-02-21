@@ -1,4 +1,5 @@
-var url = '//localhost:9000';
+//var url = '//localhost:9000';
+var url = 'http://172.17.244.204:9000';
 angular.module('starter.services', [])
 
 .factory('Chats', function() {

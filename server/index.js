@@ -8,6 +8,7 @@ import http from 'http'
 import seed from './config/seed';
 
 const mongodbURI = 'mongodb://localhost/football-quiz'
+//const mongodbURI = 'mongodb://superuser:superpass@ds031691.mongolab.com:31691/br'
 mongoose.connect(mongodbURI)
 mongoose.connection.on('error', function (error) {
   console.error(`Mongodb error: ${error}`);

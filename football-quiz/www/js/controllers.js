@@ -44,10 +44,15 @@ angular.module('starter.controllers', [])
   $scope.done = done;
   var roomId;
 
-  Room.all()
-    .success(function (data) {
-      $scope.rooms = data
-    });
+
+  $scope.$on('$ionicView.enter', function(e) {
+    Room.all()
+      .success(function (data) {
+        $scope.rooms = data
+      });
+  })
+
+
 
   /**
    *
@@ -129,7 +134,7 @@ angular.module('starter.controllers', [])
   }
   $scope.$on('$ionicView.leave', function(e) {
     $interval.cancel(interval)
-    $scope.timer.stop()
+    $scope.timer.cancel()
   })
 
 })
@@ -169,9 +174,21 @@ angular.module('starter.controllers', [])
 })
 
 
-.controller('ResultCtrl', function($scope, $state, Answer) {
-  Answer.results($state.params.roomId)
-    .success(function (results) {
-      $scope.results = results
-    })
+.controller('ResultCtrl', function($scope, $state, Answer, $interval) {
+  var interval
+  $scope.$on('$ionicView.enter', function(e) {
+    interval = $interval(function () {
+      if (!$state.params.roomId) {
+        return;
+      }
+      Answer.results($state.params.roomId)
+        .success(function (results) {
+          $scope.results = results
+        })
+    }, 1000)
+  })
+
+  $scope.$on('$ionicView.leave', function(e) {
+    $interval.cancel(interval);
+  })
 });
