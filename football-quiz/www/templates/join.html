@@ -9,6 +9,11 @@
         <ion-list>
             <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="room in rooms" type="item-text-wrap">
                 <h2>{{ room.hash }}</h2>
+                <div class="teams">
+                    <img src="/img/bvb_logo.png">
+                    <span>VS</span>
+                    <img src="/img/fcb_logo.png">
+                </div>
                 <button ng-click="join('{{ room._id }}')" class="button button-outline button-light">Join</button>
             </ion-item>
         </ion-list>

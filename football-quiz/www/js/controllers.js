@@ -4,6 +4,7 @@ angular.module('starter.controllers', [])
     $scope.user = {username: ''};
     $scope.createGame = createGame;
     $scope.done = done;
+    $scope.isCreate =  true
 
     /**
      * Create game
