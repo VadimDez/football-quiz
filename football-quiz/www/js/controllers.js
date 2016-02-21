@@ -127,6 +127,11 @@ angular.module('starter.controllers', [])
 
     count++;
   }
+  $scope.$on('$ionicView.leave', function(e) {
+    $interval.cancel(interval)
+    $scope.timer.stop()
+  })
+
 })
 
 .controller('ResultGifCtrl', function ($scope, $state) {
