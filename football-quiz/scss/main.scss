@@ -25,6 +25,9 @@ button.button-outline {
 
 .modal {
 	background-color: $green;
+	background-position: center center;
+	background-repeat: repeat;
+	background-image: url(/img/background.jpg);
 	text-align: center;
 	
 	input::-webkit-input-placeholder {
