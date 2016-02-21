@@ -131,7 +131,7 @@ angular.module('starter.controllers', [])
 
 .controller('ResultGifCtrl', function ($scope, $state) {
   $scope.isTrue = $state.params.isTrue
-  console.log($scope.isTrue);
+  $scope.randomGif = Math.floor(Math.random() * 10) + 1;
   $scope.next = function () {
     $state.go('result-explain', {roomId: $state.params.roomId, question: $state.params.question})
   };

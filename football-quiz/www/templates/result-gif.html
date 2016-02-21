@@ -9,8 +9,8 @@
 		</header>
 		<div class="row result center-content">
 			<div class="col col-center">
-			    <img class="result-gif" ng-show="{{ isTrue }}" ng-click="next()" ng-src="/img/gifs/positive/1.gif">
-			    <img class="result-gif" ng-hide="{{ isTrue }}" ng-click="next()" ng-src="/img/gifs/negative/3.gif">
+			    <img class="result-gif" ng-show="{{ isTrue }}" ng-click="next()" ng-src="/img/gifs/positive/{{ randomGif }}.gif">
+			    <img class="result-gif" ng-hide="{{ isTrue }}" ng-click="next()" ng-src="/img/gifs/negative/{{ randomGif }}.gif">
 			</div>
 		</div>
 		<button class="button button-block button-outline button-light" ng-click="next()">Roger that!</button>
