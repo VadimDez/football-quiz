@@ -7,6 +7,7 @@
 	h1 {
 		color: #ffffff;
 		font-size: 40px;
+		margin-bottom: 30px;
 		line-height: 1.2em;
 	}
 	p {
@@ -17,5 +18,27 @@
 	h2 {
 		color: rgba(0,0,0,0.7);
 		font-size: 40px;
+	}
+	.users {
+		border-color: #fff;
+		color: #fff;
+		font-size: 20px;
+		i {
+			color: rgba(0,0,0,0.7);
+		}
+		span {
+			font-size: 24px;
+			display: block;
+		}
+		span.username {
+			margin-left: 20px;
+			float: left;
+		}
+		span.points {
+			float: right;
+			margin-left: 20px;
+			color: rgba(0,0,0,0.7);
+			font-size: 30px;
+		}
 	}
 }
