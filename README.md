@@ -1,4 +1,5 @@
 #Football quiz
+![image](https://raw.githubusercontent.com/VadimDez/football-quiz/master/unspecified.jpeg)
 
 ### Server
 
@@ -37,6 +38,14 @@ serve ionic
 ```
 ionic serve
 ```
+
+#### Team
+- Volker Heinrich (Designer)
+- Ronja Brettschneider (Designer)
+- Benedict Witzenberger (Journalist)
+- Michael Haas (Journalist)
+- Florian Dietsche  (Journalist)
+- Vadym Yatsyuk (Developer)
 
 #### INFO
 
