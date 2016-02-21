@@ -1,5 +1,8 @@
 {
   "name": "football-quiz",
-  "app_id": "",
-  "gulpStartupTasks": ["sass", "watch"]
+  "app_id": "9f97ec20",
+  "gulpStartupTasks": [
+    "sass",
+    "watch"
+  ]
 }
