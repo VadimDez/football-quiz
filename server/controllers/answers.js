@@ -82,7 +82,8 @@ router.get('/aggregate/:roomId', (req, res) => {
   Answer.aggregateAsync([
     {
       $match: {
-        room: mongoose.Types.ObjectId(req.params.roomId)
+        room: mongoose.Types.ObjectId(req.params.roomId),
+        value: true
       }
     }, {
       $group: {
@@ -92,7 +93,9 @@ router.get('/aggregate/:roomId', (req, res) => {
     }
   ])
     .then(data => {
-      res.json(data)
+      User.populate(data, {path: '_id'}, (err, entity) => {
+        res.json(entity)
+      })
     })
     .catch(handleError(res))
 })

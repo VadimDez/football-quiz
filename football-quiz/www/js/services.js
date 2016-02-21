@@ -92,7 +92,7 @@ angular.module('starter.services', [])
       })
     },
     results: function(roomId) {
-      return $http(url + '/answers/aggregate/' + roomId)
+      return $http.get(url + '/answers/aggregate/' + roomId)
     }
   }
 }])
