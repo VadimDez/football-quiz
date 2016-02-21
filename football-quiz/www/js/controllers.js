@@ -87,10 +87,15 @@ angular.module('starter.controllers', [])
     $scope.modal.remove();
   });
 })
-.controller('DashCtrl', function($scope, Room, $state, Question, Answer) {
+.controller('DashCtrl', function($scope, Room, $state, Question, Answer, $interval, CountdownTimer) {
+  var interval;
+  var count = 0;
   $scope.answer = answer;
   $scope.question = null
   $scope.number = parseInt($state.params.question, 10) + 1
+  $scope.timer = new CountdownTimer(10000)
+
+  $scope.timer.start()
 
   var questions = [];
 
@@ -107,10 +112,21 @@ angular.module('starter.controllers', [])
       questions = data
       if (data && data.hasOwnProperty(parseInt($state.params.question, 10))) {
         $scope.question = data[parseInt($state.params.question, 10)]
+        interval = $interval(countdown, 1000)
       } else {
         $state.go('result', {roomId: $state.params.roomId})
       }
     })
+
+  function countdown() {
+    if (count >= 10) {
+      $interval.cancel(interval)
+      answer()
+      return
+    }
+
+    count++;
+  }
 })
 
 .controller('ResultGifCtrl', function ($scope, $state) {

@@ -15,6 +15,7 @@
             <div class="col col-center">
                 <div class="count">{{ number }} / 3</div>
                 <h2>{{ question.question }}</h2>
+                <countdown timer="timer" radius="15" stroke="5"></countdown>
                 <img ng-click="answer(true)" src="/img/yes.png">
                 <img ng-click="answer(false)" src="/img/no.png">
             </div>
