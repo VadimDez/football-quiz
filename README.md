@@ -39,6 +39,14 @@ serve ionic
 ionic serve
 ```
 
+#### Team
+- Volker Heinrich (Designer)
+- Ronja Brettschneider (Designer)
+- Benedict Witzenberger (Journalist)
+- Michael Haas (Journalist)
+- Florian Dietsche  (Journalist)
+- Vadym Yatsyuk (Developer)
+
 #### INFO
 
 Example question format:
