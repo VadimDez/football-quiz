@@ -149,4 +149,7 @@ angular.module('starter.controllers', [])
 
 .controller('ResultCtrl', function($scope, $state, Answer) {
   Answer.results($state.params.roomId)
+    .success(function (results) {
+      $scope.results = results
+    })
 });

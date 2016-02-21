@@ -10,6 +10,15 @@
 		<div class="row result center-content">
 			<div class="col col-center">
 			    <h1>RESULTS</h1>
+				<div class="users">
+					<div class="list">
+						<a class="item item-icon-left item-icon-right" href="#" ng-repeat="result in results">
+							<i class="icon ion-person"></i>
+							<span>{{ result._id.username }}</span>
+							<span>{{ result.total }}</span>
+						</a>
+					</div>
+				</div>
 			</div>
 		</div>
     </ion-content>
